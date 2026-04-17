@@ -28,3 +28,13 @@ Files to run for reproducing the temporal link prediction results:
 9) python link_prediction_node2vec_similarity_temporal.py {dataset_name} {similarity_network} 0.3
 10) python link_prediction_tgnn_temporal.py {dataset_name} 
 11) python link_prediction_tgnn_similarity_temporal.py {dataset_name}
+
+Files to run for reproducing the classification results:
+1) python generate_interaction_network.py {dataset_name}
+2) python classify_io.py {dataset_name} 1 no_motif 0 0 
+3) python classify_io.py {dataset_name} 1 twitter_interaction_types 0 0
+4) python classify_io.py {dataset_name} 1 static_motif 0 0
+5) python classify_io.py {dataset_name} 1 temporal_motif 60 0
+6) python classify_io.py {dataset_name} 1 temporal_motif 3600 0
+7) python classify_io.py {dataset_name} 0 all_no_motif_twitter_interaction_types_static_motif_temporal_motif_60_temporal_motif_3600 0 0
+8) python classify_io.py {dataset_name} 0 all_no_motif_twitter_interaction_types_static_motif_temporal_motif_60_temporal_motif_3600 0 1

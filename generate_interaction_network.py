@@ -203,26 +203,5 @@ print(f"IO -> IO: {io_to_io_prop:.3f}")
 
 interactions_df = interactions_and_tweets_df[~interactions_and_tweets_df['interaction_with_userid'].isna()]
 
-interactions_df_compacted_motif = interactions_df[['userid', 'interaction_with_userid', 'time', 'interaction_type', 'interaction_form']]
-interactions_df_compacted_motif = interactions_df_compacted_motif[~((interactions_df_compacted_motif['interaction_form'] != 'tweet') & (interactions_df_compacted_motif['interaction_type'] == "Unknown"))]
-
-interactions_df_compacted_motif_io_io = interactions_df_compacted_motif[interactions_df_compacted_motif['interaction_type'] == "IO->IO"] #interactions_df_compacted_motif_io_all[interactions_df_compacted_motif_io_all['interaction_with_userid'].isin(io_users)]
-interactions_df_compacted_motif_control_control = interactions_df_compacted_motif[interactions_df_compacted_motif['interaction_type'] == "Control->Control"]#interactions_df_compacted_motif_control_all[interactions_df_compacted_motif_control_all['interaction_with_userid'].isin(control_users)]
-interactions_df_compacted_motif_io_control = interactions_df_compacted_motif[interactions_df_compacted_motif['interaction_type'] == "IO->Control"]#interactions_df_compacted_motif_io_all[interactions_df_compacted_motif_io_all['interaction_with_userid'].isin(control_users)]
-interactions_df_compacted_motif_io_and_control = interactions_df_compacted_motif[interactions_df_compacted_motif['interaction_type'].isin(["IO->Control", "IO->IO"])]#interactions_df_compacted_motif_io_all[((interactions_df_compacted_motif_io_all['interaction_with_userid'].isin(control_users)) | (interactions_df_compacted_motif_io_all['interaction_with_userid'].isin(io_users)))]
-
-interactions_df_compacted_motif_io_io = interactions_df_compacted_motif_io_io.sort_values('time')
-interactions_df_compacted_motif_control_control = interactions_df_compacted_motif_control_control.sort_values('time')
-interactions_df_compacted_motif_io_control = interactions_df_compacted_motif_io_control.sort_values('time')
-interactions_df_compacted_motif_io_and_control = interactions_df_compacted_motif_io_and_control.sort_values('time')
-
-interactions_df_compacted_motif_io_io.to_csv('data/{}/io_io_interactions_graph_full.csv'.format(dataset), index=False)
-interactions_df_compacted_motif_control_control.to_csv(
-    'data/{}/control_control_interactions_graph_full.csv'.format(dataset), index=False)
-interactions_df_compacted_motif_io_control.to_csv('data/{}/io_control_interactions_graph_full.csv'.format(dataset),
-                                                  index=False)
-interactions_df_compacted_motif_io_and_control.to_csv(
-    'data/{}/io_and_control_interactions_graph_full.csv'.format(dataset), index=False)
-
 interactions_and_tweets_df.to_pickle('data/{}/interactions_and_tweets_graph_full.pkl'.format(dataset))
 interactions_df.to_csv('data/{}/interactions_graph_full.csv'.format(dataset), index=False)
