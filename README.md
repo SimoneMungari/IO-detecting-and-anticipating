@@ -1,5 +1,5 @@
-# IO-Impact-and-Prediction
-Files to run for reproducing the auditing results:
+# Temporal Signatures of Coordination: Detecting and Anticipating Influence Operations on Social Media
+Files to run for reproducing the EDA results:
 1) python generate_interaction_network.py {dataset_name}
 2) python analysis_over_time_hashtag.py {dataset_name}
 3) python analysis_over_time_urls.py {dataset_name}
